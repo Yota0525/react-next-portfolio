@@ -1,95 +1,67 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Image from "next/image";
+
+import CareerList from "@/app/_components/CareerList";
+import ButtonLink from "@/app/_components/ButtonLink";
+import { Career } from "@/app/_libs/microcms";
+
+const data: { contents:Career[] } = {
+  contents: [
+    {
+      id: "1",
+      title: "鳳徳ミニバスケットボールクラブ卒団",
+      category: {
+        name: "Lesson",
+      },
+      publishedAt: "2018/03/14",
+      createdAt: "2018/03/14",
+    },
+    {
+      id: "2",
+      title: "京都市少年合唱団修了",
+      category: {
+        name: "Lesson",
+      },
+      publishedAt: "2021/03/14",
+      createdAt: "2021/03/14",
+    },
+    {
+      id: "3",
+      title: "合唱団Youth入団",
+      category: {
+        name: "Lesson",
+      },
+      publishedAt: "2021/04/06",
+      createdAt: "2021/04/06",
+    },
+  ],
+};
 
 export default function Home() {
+  const sliceData = data.contents.slice(0, 2);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
+    <>  
+      <section className={styles.top}>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <h1 className={styles.title}>ITの力で生活を豊かに</h1>
+          <p className={styles.description}>私はSEになるため勉強している専門一回生です。</p>
         </div>
-      </div>
-
-      <div className={styles.center}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className={styles.bgimg}
+          src="/Blue_Cross.jpg"
+          alt=""
+          width={4000}
+          height={1200}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </section>
+      <section className={styles.career}>
+        <h2 className={styles.careerTitle}>Career</h2>
+        <CareerList career={sliceData} />
+        <div className={styles.careerLink}>
+          <ButtonLink href="/career">もっと見る</ButtonLink>
+        </div>
+      </section>
+    </>
   );
 }

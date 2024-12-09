@@ -1,0 +1,19 @@
+import Image from "next/image";
+import styles from "./index.module.css";
+
+export default function Header() {
+  return (
+    <header className={styles.header}>
+        <a href="/" className={styles.logoLink}>
+            <Image
+                src="/Music_Logo.svg"
+                alt="MUSIC"
+                className={styles.logo}
+                width={348}
+                height={133}
+                priority
+            />
+        </a>
+    </header>
+  );
+}
