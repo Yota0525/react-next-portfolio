@@ -54,3 +54,15 @@ export const getCareerList = async (queries?: MicroCMSQueries) => {
         });
     return listData;
 }
+
+export const getCareerDetail = async (
+    contentId: string,
+    queries?: MicroCMSQueries
+) => {
+    const detailData = await client.getListDetail<Career>({
+        endpoint: "career",
+        contentId,
+        queries,
+    });
+    return detailData;
+};
