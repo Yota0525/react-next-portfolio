@@ -5,6 +5,8 @@ import { TOP_CAREER_LIMIT } from "@/app/_constants";
 import CareerList from "@/app/_components/CareerList";
 import ButtonLink from "@/app/_components/ButtonLink";
 
+export const revalidate = 60;
+
 export default async function Home() {
 
   const data = await getCareerList({
