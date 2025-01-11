@@ -83,3 +83,17 @@ export const getCategoryDetail = async (
     });
     return detailData;
 }
+
+export const getAllCareerList = async () => {
+    const listData = await client.getAllContents<Career>({
+        endpoint: 'career',
+    });
+    return listData;
+};
+
+export const getAllCategoryList = async () => {
+    const listData = await client.getAllContents<Category>({
+        endpoint: 'categories',
+    });
+    return listData;
+};

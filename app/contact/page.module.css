@@ -7,4 +7,21 @@
     .text {
       text-align: left;
     }
+
+    .list {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .list:nth-child(even) {
+      flex-direction: column;
+    }
+
+    .image {
+      width: 100%;
+    }
+
+    .footer {
+      padding-top: 20px;
+    }
   }
