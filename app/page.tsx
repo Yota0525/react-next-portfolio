@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import { getCareerList } from "@/app/_libs/microcms";
+import ExplanationList from "@/app/_components/ExplanationList";
 import { TOP_CAREER_LIMIT } from "@/app/_constants";
 import CareerList from "@/app/_components/CareerList";
 import ButtonLink from "@/app/_components/ButtonLink";
@@ -35,6 +36,13 @@ export default async function Home() {
         <CareerList career={data.contents} />
         <div className={styles.careerLink}>
           <ButtonLink href="/career">もっと見る</ButtonLink>
+        </div>
+      </section>
+      <section className={styles.explanation}>
+        <h2 className={styles.explanationTitle}>Explanation</h2>
+        <ExplanationList explanation={data.contents} />
+        <div className={styles.explanationLink}>
+          <ButtonLink href="/explanation">もっと見る</ButtonLink>
         </div>
       </section>
     </>

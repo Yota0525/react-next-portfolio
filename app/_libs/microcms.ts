@@ -10,6 +10,7 @@ export type Explanation = {
     position: string;
     profile: string;
     image: MicroCMSImage;
+    category: Category;
 } & MicroCMSListContent;
 
 export type Category = {
@@ -72,6 +73,23 @@ export const getCareerDetail = async (
     return detailData;
 };
 
+export const getExplanationDetail = async (
+    contentId: string,
+    queries?: MicroCMSQueries
+) => {
+    const detailData = await client.getListDetail<Explanation>({
+        endpoint: "explanation",
+        contentId,
+        queries,
+        customRequestInit: {
+            next: {
+                revalidate: queries?.draftKey === undefined ? 60 : 0,
+            },
+        },
+    });
+    return detailData;
+};
+
 export const getCategoryDetail = async (
     contentId: string,
     queries?: MicroCMSQueries
@@ -87,6 +105,13 @@ export const getCategoryDetail = async (
 export const getAllCareerList = async () => {
     const listData = await client.getAllContents<Career>({
         endpoint: 'career',
+    });
+    return listData;
+};
+
+export const getAllExplanationList = async () => {
+    const listData = await client.getAllContents<Explanation>({
+        endpoint: 'explanation',
     });
     return listData;
 };
