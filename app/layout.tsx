@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://localhost:3000"),
   title: {
     template: "%s | ポートフォリオサイト",
-    default: "ポートフォリオサイト",
+    default: "ポートフォリオサイト。",
   },
   description:
     "私のポートフォリオサイトです。これまでの経験やスキルについて紹介しています。",
